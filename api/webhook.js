@@ -3,8 +3,8 @@ import { Client } from '@line/bot-sdk';
 // Edge Function設定（エラーの原因）は削除済み
 
 const client = new Client({
-  channelAccessToken: process.env.LINE_CHANNEL_ACCESS_TOKEN,
-  channelSecret: process.env.LINE_CHANNEL_SECRET,
+  channelAccessToken: process.env.LINE_CHANNEL_ACCESS_TOKEN, // ここ
+  channelSecret: process.env.LINE_CHANNEL_SECRET,           // ここ
 });
 
 export default async function handler(req) {
