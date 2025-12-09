@@ -1,6 +1,7 @@
 import { Client } from '@line/bot-sdk';
 
-// 環境変数から鍵を読み込む
+// Edge Function設定（エラーの原因）は削除済み
+
 const client = new Client({
   channelAccessToken: process.env.LINE_CHANNEL_ACCESS_TOKEN,
   channelSecret: process.env.LINE_CHANNEL_SECRET,
@@ -12,7 +13,6 @@ export default async function handler(req) {
     return new Response("LINE webhook is running.");
   }
 
-  // Webhookのボディ（メッセージ情報）をJSONとして受け取る
   const body = await req.json();
   const events = body.events;
 
@@ -23,7 +23,7 @@ export default async function handler(req) {
       continue;
     }
 
-    // 2. 返信する固定テキストを定義（テンプレートリテラルで改行と絵文字を保持）
+    // 2. 返信する固定テキストを定義
     const replyText = `画像の受信が完了しました📸
 「レシートプレゼントイベント」にご応募いただきありがとうございます。
 
@@ -47,6 +47,6 @@ export default async function handler(req) {
     }
   }
 
-  // LINE Webhookからの受信完了を通知（必須）
+  // LINE Webhookからの受信完了を通知
   return new Response("OK", { status: 200 });
 }
