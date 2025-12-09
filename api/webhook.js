@@ -1,9 +1,5 @@
 import { Client } from '@line/bot-sdk';
 
-export const config = {
-  runtime: 'edge',
-};
-
 // 環境変数から鍵を読み込む
 const client = new Client({
   channelAccessToken: process.env.LINE_CHANNEL_ACCESS_TOKEN,
