@@ -1,0 +1,13 @@
+{
+  "name": "line-webhook",
+  "version": "1.0.0",
+  "description": "LINE Messaging API Webhook for Vercel",
+  "main": "api/webhook.js",
+  "scripts": {
+    "start": "node api/webhook.js"
+  },
+  "dependencies": {
+    "@line/bot-sdk": "^7.5.2",
+    "node-fetch": "^3.3.2"
+  }
+}
